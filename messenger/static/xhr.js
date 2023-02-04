@@ -159,7 +159,7 @@ function printRooms(data) {
         <td><button onclick='selectRoom(${key})'>Подключиться</button></td></tr>`;
         list = list + newString;
     };
-}
+
 
 function deleteRoom(id) {
     socket.send(JSON.stringify({'delete_room': id}));
@@ -179,4 +179,4 @@ function selectRoom(id) {
     console.log({'load': 'messageList', 'newroom_id': id});
     chatSocket.send(JSON.stringify({'roomselect': 'newroom_id', id, 'oldroom_id': currentRoom}));
     currentRoom = id; 
-}
+};
