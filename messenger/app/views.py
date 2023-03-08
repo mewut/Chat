@@ -1,5 +1,5 @@
 from .models import *
-from app.serializers import *
+from .serializers import *
 from rest_framework import generics
 
 

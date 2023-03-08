@@ -1,15 +1,9 @@
-from .views import ApiUsers, ApiRooms
-from rest_framework.routers import DefaultRouter
-from django.urls import path, include
+from django.urls import path
+from . import views
 
-
-# https://ilyachch.gitbook.io/django-rest-framework-russian-documentation/overview/navigaciya-po-api/routers
-
-
-router = DefaultRouter()
-router.register('rooms', ApiRooms)
-router.register('users', ApiUsers)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', views.main_view, name='main'),
+    path('chat/', views.room_view, name='room'),
+    path('chat/<str:room_name>/', views.chat_view, name='chat'),
 ]
